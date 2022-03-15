@@ -25,42 +25,7 @@ let perso = {
 
 
 
-/*------------------------partie logique--------------------------*/
-document.addEventListener("keyup",function (e) {
-    switch (e.key) {
-        case "ArrowUp":
-            if (perso.x > 0) {
-                console.log(perso.x);
-                if (board[perso.x - 1][perso.y] == CARTON) {
-                    console.log(board[perso.x - 1][perso.y]);
-                    if (perso.x > 1 ) {
-                        let content = board[perso.x -2][perso.y];
-                        if (content == EMPTY || content == CIBLE) {
-                            board[perso.x][perso.y] = EMPTY;
-                            console.log(container.children[perso.x].children[perso.y]);
-                            board[perso.x-2][perso.y] = CARTON;
-                            board[perso.x-1][perso.y] = PERSO;
-                            perso.x--;
-                            if(content == CIBLE){
-                                board[perso.x -2][perso.y] = CARTONOK;
-                            }
-                        }
-                    }
-                }
-            }
-            break;
-        case "ArrowDown":
-
-            break;
-        case "ArrowLeft":
-
-            break;
-        case "ArrowRight":
-
-            break;
-    
-    }
-}) 
+ 
     
 /*------------------création d'une classe interface pour gérer l'interface---------------------------------*/
 class Interface{
@@ -100,5 +65,55 @@ ui.createDiv();
 
 console.log(container.children[2].children[1]);
 
+/*------------------------partie logique--------------------------*/
+document.addEventListener("keyup",function (e) {
+    switch (e.key) {
+        case "ArrowUp":
+            if (perso.x > 0) {
+                console.log(perso.x);
+                if (board[perso.x - 1][perso.y] == CARTON) {
+                    console.log(board[perso.x - 1][perso.y]);
+                    if (perso.x > 1 ) {
+                        let content = board[perso.x -2][perso.y];
+                        if (content == EMPTY || content == CIBLE) {
+                            board[perso.x][perso.y] = EMPTY;
+                            board[perso.x-2][perso.y] = CARTON;
+                            board[perso.x-1][perso.y] = PERSO;
+                            perso.x--;
+                            if(content == CIBLE){
+                                board[perso.x -2][perso.y] = CARTONOK;
+                            }
+                        }
+                    }
+                }
+            }
+            break;
+        case "ArrowDown":
+            if (perso.x < 4) {
+                if (board[perso.x + 1][perso.y] == CARTON) {
+                    console.log(board[perso.x - 1][perso.y]);
+                    if (perso.x < 3 ) {
+                        let content = board[perso.x +2][perso.y];
+                        if (content == EMPTY || content == CIBLE) {
+                            board[perso.x][perso.y] = EMPTY;
+                            board[perso.x+2][perso.y] = CARTON;
+                            board[perso.x11][perso.y] = PERSO;
+                            perso.x--;
+                            if(content == CIBLE){
+                                board[perso.x +2][perso.y] = CARTONOK;
+                            }
+                        }
+                    }
+                }
+            }
+            break;
+        case "ArrowLeft":
 
+            break;
+        case "ArrowRight":
+
+            break;
+    
+    }
+})
 
