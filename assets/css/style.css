@@ -1,19 +1,14 @@
 div.container{
-    width: 250px;
+    width: 300px;
     margin: auto;
-    height: 250px;
+    height: 300px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(6,50px);
 }
 
 div.container div{
-    width: 250px;
-    margin: 0;
-    height: 50px;
-    display: flex;
-    flex-flow: row wrap;
-}
-div.container div div{
-    width: 50px;
-    height: 50px;
+    border: 1px solid black;
 }
 .empty{
     background-color: red;
@@ -31,5 +26,13 @@ div.container div div{
 }
 
 .cible{
-    background-color: violet;
+    background-color: darkblue;
 }
+
+.persoCible{
+    background-color: aqua;
+}
+.cartonOk{
+    background-color: chocolate;
+}
+
